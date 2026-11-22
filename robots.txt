@@ -3,3 +3,5 @@ Allow: /
 Disallow: /api/
 
 Sitemap: https://sterlingcommercesolutions.com/sitemap.xml
+
+Agentmap: https://sterlingcommercesolutions.com/.well-known/ard.json
