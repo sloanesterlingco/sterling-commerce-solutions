@@ -63,6 +63,11 @@ body{overflow-x:hidden}
 .intake-result pre{white-space:pre-wrap;word-break:break-word;background:#fff;border:1px solid #cdd5cd;color:#1e3731;font:13px/1.7 ui-monospace,monospace;padding:20px}
 .intake-result .button{border:0;cursor:pointer}
 @media(max-width:650px){.intake-fields{grid-template-columns:1fr}.intake-header{display:block}.intake-step{display:none}.intake-shell{padding:25px 19px}}
+
+.trap-field{position:absolute!important;left:-9999px!important;width:1px!important;height:1px!important;overflow:hidden!important}
+.privacy-check{display:flex;align-items:flex-start;gap:12px;color:#304740;font-size:12px;text-align:left;line-height:1.6;margin-top:20px}
+.privacy-check input{margin-top:4px;accent-color:#1b6259;width:18px;height:18px;flex:none}
+#inquiry-submit:disabled{opacity:.65;cursor:wait}
 </style>
 </head><body>
 <div class="scroll-progress" aria-hidden="true"></div><header class="header"><div class="wrap nav"><a class="wordmark" href="#home" aria-label="Sterling Commerce Solutions home">STERLING<span>COMMERCE SOLUTIONS</span></a><nav class="navlinks" aria-label="Main navigation"><a href="#services">Solutions</a><a href="#configure">Build a Package</a><a href="#portfolio">Selected Work</a><a href="#process">Process</a><a class="navcta" href="#inquire">Let's Talk</a></nav><button id="mobile-menu-button" class="mobile-menu-button" type="button" aria-expanded="false" aria-controls="mobile-nav">Menu ☰</button></div><nav class="mobile-nav" id="mobile-nav" data-open="false" aria-label="Mobile navigation"><a href="#services">Solutions</a><a href="#expertise">Our Approach</a><a href="#configure">Build Your Package</a><a href="#portfolio">Selected Work</a><a href="#process">Process</a><a href="#inquire">Inquiries</a></nav></header>
@@ -113,6 +118,9 @@ body{overflow-x:hidden}
 <div class="intake-header"><div><div class="eyebrow">Private project intake</div><h3>Tell us what you're building.</h3><p>Answer a few questions to prepare a useful project brief. Nothing is sent until our secure inquiry system is activated.</p></div><span class="intake-step">03 MINUTES</span></div>
 <form id="intake-form" novalidate>
 <div class="intake-fields">
+<label>Your name <span aria-hidden="true">*</span><input name="name" type="text" autocomplete="name" maxlength="120" required placeholder="Your name"></label>
+<label>Your email <span aria-hidden="true">*</span><input name="email" type="email" autocomplete="email" maxlength="254" required placeholder="you@yourbusiness.com"></label>
+<div class="trap-field" aria-hidden="true"><label>Leave this blank<input name="website_field" type="text" tabindex="-1" autocomplete="off"></label></div>
 <label>What can we help with?<select name="service" required><option value="">Select a service</option><option>Merchant Center Compliance Review</option><option>Advanced Merchant Center Remediation</option><option>Shopify Storefront Development</option><option>Custom Commerce and AI</option><option>Business Acquisition Inquiry</option></select></label>
 <label>What best describes your business?<select name="stage" required><option value="">Select your stage</option><option>Planning a new business</option><option>Existing online store</option><option>Established brand seeking improvements</option><option>Exploring a business purchase</option></select></label>
 <label>Current Merchant Center status<select name="merchant"><option value="">Select if applicable</option><option>Not yet submitted</option><option>Approved</option><option>Under review</option><option>Misrepresentation warning or rejection</option><option>Suspended; review or appeal still available</option><option>Suspended; no further review permitted</option><option>Unsure</option></select></label>
@@ -120,10 +128,10 @@ body{overflow-x:hidden}
 <label class="wide">Your website (optional)<input name="url" type="url" placeholder="https://yourstore.com" inputmode="url"></label>
 <label class="wide">A little about your goals<textarea name="goals" rows="4" maxlength="1500" placeholder="What would a successful project look like?"></textarea></label>
 </div>
-<p class="intake-note">For Merchant Center remediation, we review prior attempts and account restrictions before accepting work. We do not guarantee approval or bypass Google enforcement decisions.</p>
-<div class="intake-action"><button class="button dark" type="submit">Prepare My Inquiry Brief ↗</button><span>No account required · Nothing submitted automatically</span></div>
+<label class="privacy-check"><input type="checkbox" name="consent" required> I agree to be contacted about this inquiry. My information will be used to respond to my request and will not be sold for advertising.</label><p class="intake-note">For Merchant Center remediation, we review prior attempts and account restrictions before accepting work. We do not guarantee approval or bypass Google enforcement decisions.</p>
+<div class="intake-action"><button class="button dark" type="submit" id="inquiry-submit">Prepare My Inquiry Brief ↗</button><span id="inquiry-mode">No account required · Email delivery setup pending</span></div>
 </form>
-<div id="intake-result" class="intake-result" hidden><h3>Your inquiry brief is ready.</h3><p>Copy this summary for your records. Submission will be enabled once our verified business email and secure intake endpoint are connected.</p><pre id="intake-summary"></pre><button class="button dark" id="intake-copy" type="button">Copy Inquiry Brief</button><p id="intake-copy-status" aria-live="polite"></p></div>
+<div id="intake-result" class="intake-result" hidden><h3>Your inquiry brief is ready.</h3><p id="intake-result-text">Copy this summary for your records. Email delivery will be enabled once our verified business address is connected.</p><pre id="intake-summary"></pre><button class="button dark" id="intake-copy" type="button">Copy Inquiry Brief</button><p id="intake-copy-status" aria-live="polite" role="status"></p></div>
 </div></div></section>
 </main><footer><div class="wrap"><div class="foot-grid"><a class="wordmark" href="#home">STERLING<span>COMMERCE SOLUTIONS</span></a><div class="footlinks"><a href="#services">Services</a><a href="#portfolio">Selected Work</a><a href="#process">Process</a><a href="#inquire">Inquiries</a></div></div><div class="fine"><span>© 2026 Sterling Commerce Solutions. All rights reserved.</span><span>Independent e-commerce consulting & development · Contact and legal disclosures pending verification</span></div></div></footer>
 
@@ -169,27 +177,66 @@ document.querySelectorAll('[data-service]').forEach(link=>link.addEventListener(
  const select=document.querySelector('#intake-form [name="service"]');if(select)select.value=link.dataset.service;
 }));
 const inquiryForm=document.getElementById('intake-form');
-inquiryForm.addEventListener('submit',event=>{
+const inquiryButton=document.getElementById('inquiry-submit');
+const inquiryMode=document.getElementById('inquiry-mode');
+let inquiryReady=false;
+async function checkInquiryEndpoint(){
+ try{
+  const response=await fetch('/api/inquiry',{cache:'no-store'});
+  if(!response.ok)return;
+  const data=await response.json();
+  inquiryReady=data.ready===true;
+  if(inquiryReady){
+   inquiryButton.textContent='Send Consultation Request ↗';
+   inquiryMode.textContent='Secure submission · No payment required';
+  }
+ }catch(e){/* Remain in local draft mode until configured */}
+}
+checkInquiryEndpoint();
+function showInquiryResult(content,delivered,message){
+ document.getElementById('intake-summary').textContent=content;
+ document.getElementById('intake-result').hidden=false;
+ document.getElementById('intake-result-text').textContent=message;
+ document.getElementById('intake-copy').hidden=delivered;
+ document.getElementById('intake-result').scrollIntoView({behavior:matchMedia('(prefers-reduced-motion: reduce)').matches?'auto':'smooth',block:'nearest'});
+ document.getElementById('intake-copy').onclick=async()=>{
+  try{await navigator.clipboard.writeText(content);document.getElementById('intake-copy-status').textContent='Copied to your clipboard.'}
+  catch(e){document.getElementById('intake-copy-status').textContent='Select the text above to copy manually.'}
+ };
+}
+inquiryForm.addEventListener('submit',async event=>{
  event.preventDefault();
- const d=new FormData(inquiryForm);const service=String(d.get('service')||'');
- const stage=String(d.get('stage')||'');
- if(!service||!stage){inquiryForm.reportValidity();return}
+ if(!inquiryForm.reportValidity())return;
+ const d=new FormData(inquiryForm);
+ const name=String(d.get('name')||'').trim(),email=String(d.get('email')||'').trim();
+ const service=String(d.get('service')||''),stage=String(d.get('stage')||'');
  const website=String(d.get('url')||'').trim();
  const merchant=String(d.get('merchant')||'Not specified');
  const budget=String(d.get('budget')||'Prefer to discuss');
  const goals=String(d.get('goals')||'').trim().slice(0,1500);
- const lines=['Sterling Commerce Solutions — Project Inquiry','Service: '+service,'Business stage: '+stage,'Merchant Center status: '+(merchant||'Not specified'),'Budget: '+(budget||'Prefer to discuss')];
+ const lines=['Sterling Commerce Solutions — Project Inquiry','Name: '+name,'Email: '+email,'Service: '+service,'Business stage: '+stage,'Merchant Center status: '+(merchant||'Not specified'),'Budget: '+(budget||'Prefer to discuss')];
  if(website)lines.push('Website: '+website);
  if(goals)lines.push('Goals: '+goals);
- lines.push('This is a draft inquiry; no information has been submitted.');
  const content=lines.join('\n');
- document.getElementById('intake-summary').textContent=content;
- document.getElementById('intake-result').hidden=false;
- document.getElementById('intake-result').scrollIntoView({behavior:matchMedia('(prefers-reduced-motion: reduce)').matches?'auto':'smooth',block:'nearest'});
- document.getElementById('intake-copy').onclick=async()=>{
- try{await navigator.clipboard.writeText(content);document.getElementById('intake-copy-status').textContent='Copied to your clipboard.'}
- catch(e){document.getElementById('intake-copy-status').textContent='Select the text above to copy manually.'}
- };
+ if(!inquiryReady){
+  showInquiryResult(content,false,'This is a local draft only. No inquiry has been submitted. Save the brief while secure email delivery is being configured.');
+  return;
+ }
+ inquiryButton.disabled=true;inquiryButton.textContent='Sending securely…';
+ try{
+  const response=await fetch('/api/inquiry',{
+   method:'POST',headers:{'Content-Type':'application/json'},
+   body:JSON.stringify({name,email,service,stage,merchant,budget,url:website,goals,website_field:String(d.get('website_field')||''),consent:d.get('consent')==='on'})
+  });
+  const result=await response.json();
+  if(response.ok&&result.ok){
+   showInquiryResult(content,true,'Your consultation request has been sent. We will review the details and respond using the email you provided.');
+   inquiryForm.reset();document.getElementById('intake-copy-status').textContent='';
+  }else{
+   showInquiryResult(content,false,(result.error||'Delivery failed.')+' Your request was not sent. Please save the brief and try again later.');
+  }
+ }catch(e){showInquiryResult(content,false,'We could not reach the inquiry service. Your request was not sent. Save the brief and try again later.')}
+ finally{inquiryButton.disabled=false;inquiryButton.textContent='Send Consultation Request ↗'}
 });
 
 const progress=$('.scroll-progress');
