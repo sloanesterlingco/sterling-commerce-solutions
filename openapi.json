@@ -1,0 +1,69 @@
+{
+  "openapi": "3.1.0",
+  "info": {
+    "title": "Sterling Commerce Solutions Agent Search API",
+    "version": "1.0.0",
+    "description": "Read-only service discovery API for AI assistants and agentic search clients. Returns public service information only; it does not submit forms, access customer records, or make purchases."
+  },
+  "servers": [
+    {
+      "url": "https://sterlingcommercesolutions.com"
+    }
+  ],
+  "paths": {
+    "/api/agent-search": {
+      "get": {
+        "operationId": "searchSterlingServices",
+        "summary": "Search public Sterling Commerce Solutions services",
+        "description": "Find relevant public service offerings using a natural-language query. Omit q to list all services. Supply slug to retrieve a specific service.",
+        "parameters": [
+          {
+            "name": "q",
+            "in": "query",
+            "required": false,
+            "description": "Plain-language search query, for example Google Merchant Center misrepresentation or Shopify store design.",
+            "schema": {
+              "type": "string",
+              "maxLength": 120
+            }
+          },
+          {
+            "name": "slug",
+            "in": "query",
+            "required": false,
+            "description": "Exact service slug returned by a previous search.",
+            "schema": {
+              "type": "string",
+              "enum": [
+                "google-merchant-center-compliance",
+                "merchant-center-misrepresentation",
+                "shopify-store-development",
+                "ai-commerce-concierge",
+                "custom-ecommerce-development"
+              ]
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Matching public services",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "additionalProperties": true
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Service slug not found"
+          },
+          "405": {
+            "description": "Method not allowed"
+          }
+        }
+      }
+    }
+  }
+}
