@@ -1,36 +1,37 @@
 # Sterling Commerce Solutions
 
-Premium e-commerce development and Google Merchant Center compliance consulting website.
+Premium e-commerce development, Google Merchant Center compliance consulting, Shopify storefront development and AI commerce technology.
 
 ## Deployment
+- Repository: `sloanesterlingco/sterling-commerce-solutions`
+- Production domain: https://sterlingcommercesolutions.com/
+- Vercel preview: https://sterling-commerce-solutions.vercel.app/
 
-- Source: `sloanesterlingco/sterling-commerce-solutions`
-- Vercel: linked to the main branch
-- Public preview: https://sterling-commerce-solutions.vercel.app/
-- Intended branded domain: `sterlingcommercesolutions.com` (connect after DNS verification)
+## SEO foundation
+- Descriptive page titles, meta descriptions, canonical URLs and social metadata.
+- Organization, WebSite, Service and Article structured data where appropriate.
+- Dedicated service landing pages under `/services/`.
+- Original educational resources under `/resources/`.
+- XML sitemap at `/sitemap.xml` and crawler guidance at `/robots.txt`.
+- Privacy notice and general website terms.
+- Helpful content is written to describe actual service scope and platform limitations. No ranking or Google approval outcome is guaranteed.
 
-## Inquiry submission
+## Agentic search and AI discovery
+- Read-only service search API: `GET /api/agent-search?q=<query>` or `?slug=<service-slug>`.
+- OpenAPI description: `/openapi.json`.
+- Agentic Resource Discovery manifest: `/.well-known/ard.json`.
+- Human- and agent-readable site overview: `/llms.txt`.
+- Optional WebMCP tools on the homepage: `search_sterling_commerce_services` and `get_sterling_commerce_service_details`. They expose public service information only and do not submit forms or make purchases.
+- ARD, WebMCP, and AI crawlers do not guarantee indexing, citations, discovery, leads or sales.
 
-The frontend has a guided intake form and a serverless endpoint at `/api/inquiry`. The form safely stays in **local draft mode** until email delivery is configured. It does not falsely report a submission.
+## Inquiry delivery
+The consultation form uses `/api/inquiry` and server-side Resend settings. Keep API keys in Vercel environment variables only. Verify that production email delivery and the GoDaddy-hosted destination inbox work before advertising.
 
-Set these **server-side Vercel environment variables** for Production (and Preview if desired):
-
-- `RESEND_API_KEY` — secret API key for a Resend account with a verified sending domain.
-- `RESEND_FROM_EMAIL` — verified address for outbound inquiry notifications, such as `Sterling Commerce Solutions <inquiries@sterlingcommercesolutions.com>`. The address must actually exist/meet Resend sending-domain requirements.
-- `INQUIRY_TO_EMAIL` — actual inbox that should receive new inquiries.
-- `ALLOWED_INQUIRY_ORIGINS` (optional) — comma-separated extra allowed HTTPS hostnames, if using more domains than the built-in production hosts.
-
-Then redeploy and test `GET /api/inquiry` returning `{"ready":true}`. Submit a test inquiry and confirm inbox receipt and Reply-To before advertising.
-
-**Security:** Secrets stay in Vercel, not GitHub. The endpoint validates required inputs, email and URL formats, origin, message length, and an anti-bot honeypot. For high-volume public traffic, add durable IP-based rate limiting and a managed bot challenge (such as Turnstile), and publish a privacy policy before inviting real customer submissions. Do not log health or payment information. Avoid requesting passwords or Google credentials through the form.
-
-**Merchant Center:** Assess prior account restrictions before engagement. No approvals are guaranteed and no circumvention services are offered.
-
-## Before launch
-
-- Confirm legal company name, business mailing address, working contact email, and published legal/privacy disclosures.
-- Confirm final service tiers and scope/prices with the owner.
-- Verify live portfolio links and seller marketplace obligations for Sterling Hat Co.
-- Confirm branded domain DNS and HTTPS.
-- Test desktop/mobile navigation, package estimator, accessibility, and receipt of consultation emails.
-- Do not enable checkout or paid services without the owner's approval.
+## Before public marketing launch
+- Confirm consultation email delivery from production and test Reply-To.
+- Verify Google Search Console ownership and submit `https://sterlingcommercesolutions.com/sitemap.xml`.
+- Verify analytics and conversion measurement before activating Google Ads.
+- Review privacy policy and terms with qualified counsel.
+- Confirm all business disclosures and service prices match the signed customer agreements.
+- Add rate limiting and managed bot protection to public inquiry submissions before scaling traffic.
+- Review current Google Merchant Center policies before each remediation engagement.
