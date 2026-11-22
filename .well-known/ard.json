@@ -1,0 +1,21 @@
+{
+  "entries": [
+    {
+      "identifier": "urn:air:sterlingcommercesolutions.com:api:service-discovery",
+      "displayName": "Sterling Commerce Solutions Service Discovery API",
+      "type": "application/openapi+json",
+      "url": "https://sterlingcommercesolutions.com/openapi.json",
+      "capabilities": [
+        "SearchServices",
+        "GetServiceDetails"
+      ],
+      "description": "Read-only API for AI agents to discover public e-commerce consulting, Google Merchant Center compliance, Shopify development and AI commerce services. It does not submit inquiries or access customer data.",
+      "representativeQueries": [
+        "Find a consultant to review a Google Merchant Center misrepresentation notice",
+        "Compare Shopify storefront development packages and starting prices",
+        "Find an AI shopping concierge integration for an ecommerce store",
+        "What does a Google Merchant Center compliance audit include?"
+      ]
+    }
+  ]
+}
