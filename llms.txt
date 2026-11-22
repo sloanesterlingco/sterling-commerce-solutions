@@ -1,0 +1,25 @@
+# Sterling Commerce Solutions
+
+> Independent e-commerce development and Google Merchant Center compliance consulting.
+
+Canonical website: https://sterlingcommercesolutions.com/
+Contact: consultations@sterlingcommercesolutions.com
+
+## Services
+- Google Merchant Center Compliance Review & Repair: https://sterlingcommercesolutions.com/services/google-merchant-center-compliance
+- Merchant Center Misrepresentation Assessment: https://sterlingcommercesolutions.com/services/merchant-center-misrepresentation
+- Shopify Storefront Development: https://sterlingcommercesolutions.com/services/shopify-store-development
+- AI Commerce Concierge Integration: https://sterlingcommercesolutions.com/services/ai-commerce-concierge
+- Custom E-Commerce Development: https://sterlingcommercesolutions.com/services/custom-ecommerce-development
+
+## Educational resources
+- Merchant Center Misrepresentation Review Checklist: https://sterlingcommercesolutions.com/resources/merchant-center-misrepresentation-checklist
+- Shopify Merchant Center Readiness Checklist: https://sterlingcommercesolutions.com/resources/shopify-merchant-center-readiness
+
+## Agent-accessible service discovery
+- OpenAPI description: https://sterlingcommercesolutions.com/openapi.json
+- Agentic Resource Discovery manifest: https://sterlingcommercesolutions.com/.well-known/ard.json
+- Read-only search endpoint: https://sterlingcommercesolutions.com/api/agent-search?q=merchant%20center
+
+## Important limitations
+Sterling Commerce Solutions is an independent provider and is not affiliated with Google or Shopify. Google independently controls Merchant Center eligibility, verification, review and enforcement. No approval, reinstatement, ranking or search visibility is guaranteed. The agent search endpoint exposes public service descriptions only and does not accept customer submissions or access private records.
