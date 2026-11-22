@@ -40,16 +40,38 @@ body{overflow-x:hidden}
 @media(max-width:900px){.mobile-menu-button{display:block}.hamb{display:none}.mobile-nav[data-open="true"]{display:block}.builder-layout{grid-template-columns:1fr}.builder-summary{position:static}}
 @media(max-width:590px){.builder-panel,.builder-summary{padding:23px}.select-row{grid-template-columns:1fr}.builder-layout{gap:15px}.addon em{font-size:12px}}
 
+
+/* Consultation flow and premium service navigation */
+.navlinks a[href="#configure"]{color:#e1c5a2}
+.intake-shell{background:#f5f2eb;color:#18302b;text-align:left;padding:clamp(26px,5vw,52px);max-width:1000px;margin:50px auto 0;border:1px solid #d8c8af;box-shadow:0 28px 75px #00000018}
+.intake-header{display:flex;justify-content:space-between;gap:25px;align-items:flex-start;margin-bottom:26px}
+.intake-header h3{font:500 29px "Playfair Display",serif;margin:8px 0}
+.intake-header p{font-size:14px;max-width:620px;color:#60706a}
+.intake-step{font:700 10px "Manrope",sans-serif;letter-spacing:.15em;color:#877255;white-space:nowrap;padding-top:8px}
+.intake-fields{display:grid;grid-template-columns:1fr 1fr;gap:20px}
+.intake-fields label{font-size:12px;font-weight:700;letter-spacing:.025em;color:#304740}
+.intake-fields .wide{grid-column:1/-1}
+.intake-fields select,.intake-fields input,.intake-fields textarea{display:block;width:100%;margin-top:9px;border:1px solid #c9d0c8;background:#fff;padding:13px 14px;border-radius:0;color:#172b26;font:14px "DM Sans",sans-serif;min-height:49px}
+.intake-fields textarea{resize:vertical;min-height:115px}
+.intake-note{font-size:12px!important;color:#65716a!important;line-height:1.65;margin:24px 0}
+.intake-action{display:flex;align-items:center;flex-wrap:wrap;gap:18px}
+.intake-action button{border:0;cursor:pointer}
+.intake-action span{font-size:11px;color:#69746d}
+.intake-result{border-top:1px solid #c6cec6;padding-top:25px;margin-top:25px}
+.intake-result h3{font-family:"Playfair Display",serif}
+.intake-result p{color:#62716b;font-size:13px}
+.intake-result pre{white-space:pre-wrap;word-break:break-word;background:#fff;border:1px solid #cdd5cd;color:#1e3731;font:13px/1.7 ui-monospace,monospace;padding:20px}
+.intake-result .button{border:0;cursor:pointer}
+@media(max-width:650px){.intake-fields{grid-template-columns:1fr}.intake-header{display:block}.intake-step{display:none}.intake-shell{padding:25px 19px}}
 </style>
 </head><body>
-<div class="scroll-progress" aria-hidden="true"></div><header class="header"><div class="wrap nav"><a class="wordmark" href="#home" aria-label="Sterling Commerce Solutions home">STERLING<span>COMMERCE SOLUTIONS</span></a><nav class="navlinks" aria-label="Main navigation"><a href="#expertise">Expertise</a><a href="#services">Services</a><a href="#portfolio">Selected Work</a><a href="#process">Process</a><a class="navcta" href="#inquire">Let's Talk</a></nav><button id="mobile-menu-button" class="mobile-menu-button" type="button" aria-expanded="false" aria-controls="mobile-nav">Menu ☰</button></div><nav class="mobile-nav" id="mobile-nav" data-open="false" aria-label="Mobile navigation"><a href="#expertise">Expertise</a><a href="#services">Services</a><a href="#configure">Build Your Package</a><a href="#portfolio">Selected Work</a><a href="#process">Process</a><a href="#inquire">Inquiries</a></nav></header>
+<div class="scroll-progress" aria-hidden="true"></div><header class="header"><div class="wrap nav"><a class="wordmark" href="#home" aria-label="Sterling Commerce Solutions home">STERLING<span>COMMERCE SOLUTIONS</span></a><nav class="navlinks" aria-label="Main navigation"><a href="#services">Solutions</a><a href="#configure">Build a Package</a><a href="#portfolio">Selected Work</a><a href="#process">Process</a><a class="navcta" href="#inquire">Let's Talk</a></nav><button id="mobile-menu-button" class="mobile-menu-button" type="button" aria-expanded="false" aria-controls="mobile-nav">Menu ☰</button></div><nav class="mobile-nav" id="mobile-nav" data-open="false" aria-label="Mobile navigation"><a href="#services">Solutions</a><a href="#expertise">Our Approach</a><a href="#configure">Build Your Package</a><a href="#portfolio">Selected Work</a><a href="#process">Process</a><a href="#inquire">Inquiries</a></nav></header>
 <main id="home">
-<section class="hero"><div class="wrap"><div class="eyebrow light">Independent e-commerce consulting & development</div><h1>Commerce built<br>with <em>intention.</em></h1><p class="herocopy">Exceptional storefront experiences. Thoughtful technical execution. Specialized Google Merchant Center compliance assistance. Built for merchants who want to move forward with confidence.</p><div class="actions"><a class="button" href="#services">Discover Our Services</a><a class="button outline" href="#portfolio">View Selected Work</a></div></div><div class="hero-foot"><div class="wrap"><span>SHOPIFY DEVELOPMENT / MERCHANT CENTER SERVICES / AI COMMERCE</span><span>SCROLL TO EXPLORE ↓</span></div></div></section>
-<section class="section statement" id="expertise"><div class="wrap inner"><div><div class="eyebrow">A different kind of commerce partner</div><h2>Design is only<br>the beginning.</h2><p>The strongest online stores are built on the details customers don't always see: consistent policies, clear business disclosures, clean product data, reliable configuration, and a thoughtful buying experience.</p><p>We bring practical experience from developing and operating independent Shopify stores to every engagement—so the finished result feels cohesive from the first impression through checkout.</p><div class="actions"><a href="#process" class="button dark">Our Approach</a></div></div><img class="statement-photo" src="https://images.unsplash.com/photo-1497366754035-f200968a6e72?auto=format&fit=crop&w=1100&q=85" loading="lazy" alt="Refined creative workspace with natural light"></div></section>
-<section class="section" id="services"><div class="wrap"><div class="section-intro"><div><div class="eyebrow">Our expertise</div><h2>Focused services.<br>Exceptional execution.</h2></div><p>From an initial compliance audit to a fully developed commerce platform, engagements are scoped to your needs.</p></div><div class="services">
-<article class="service"><div class="num">01 / COMPLIANCE</div><h3>Merchant Center<br>Review & Repair</h3><p>A specialist assessment of website transparency, policies, product feeds, and relevant account history—with implementation of agreed website corrections.</p><div class="price">Starting at $2,000</div><a class="more" href="#inquire">Request an assessment ↗</a></article>
-<article class="service"><div class="num">02 / STOREFRONTS</div><h3>Shopify Storefront<br>Development</h3><p>Elegant branded storefronts with responsive design, product presentation, checkout configuration, and carefully considered customer experience.</p><div class="price">Starting at $1,995</div><a class="more" href="#inquire">Explore a project ↗</a></article>
-<article class="service"><div class="num">03 / ADVANCED COMMERCE</div><h3>Custom Builds<br>& AI Integration</h3><p>Tailored commerce experiences, AI shopping concierge integrations, and carefully scoped assistance for complex Merchant Center issues.</p><div class="price">Custom proposals</div><a class="more" href="#inquire">Discuss requirements ↗</a></article>
+<section class="hero"><div class="wrap"><div class="eyebrow light">Independent e-commerce consulting & development</div><h1>Commerce built<br>with <em>intention.</em></h1><p class="herocopy">Exceptional storefront experiences. Thoughtful technical execution. Specialized Google Merchant Center compliance assistance. Built for merchants who want to move forward with confidence.</p><div class="actions"><a class="button" href="#services">Explore Solutions</a><a class="button outline" href="#portfolio">View Selected Work</a></div></div><div class="hero-foot"><div class="wrap"><span>SHOPIFY DEVELOPMENT / MERCHANT CENTER SERVICES / AI COMMERCE</span><span>SCROLL TO EXPLORE ↓</span></div></div></section>
+<section class="section" id="services"><div class="wrap"><div class="section-intro"><div><div class="eyebrow">Our expertise</div><h2>Solutions designed<br>around your ambition.</h2></div><p>Explore a clear starting price, then customize your project or request a specialist review.</p></div><div class="services">
+<article class="service"><div class="num">01 / COMPLIANCE</div><h3>Merchant Center<br>Review & Repair</h3><p>A specialist assessment of website transparency, policies, product feeds, and relevant account history—with implementation of agreed website corrections.</p><div class="price">Starting at $2,000</div><a class="more" href="#inquire" data-service="Merchant Center Compliance Review">Request a compliance assessment ↗</a></article>
+<article class="service"><div class="num">02 / STOREFRONTS</div><h3>Shopify Storefront<br>Development</h3><p>Elegant branded storefronts with responsive design, product presentation, checkout configuration, and carefully considered customer experience.</p><div class="price">Starting at $1,995</div><a class="more" href="#configure" data-select-tier="design">Configure your storefront ↗</a></article>
+<article class="service"><div class="num">03 / ADVANCED COMMERCE</div><h3>Custom Builds<br>& AI Integration</h3><p>Tailored commerce experiences, AI shopping concierge integrations, and carefully scoped assistance for complex Merchant Center issues.</p><div class="price">Custom proposals</div><a class="more" href="#inquire" data-service="Custom Commerce and AI">Discuss custom requirements ↗</a></article>
 </div><p class="caution">Google independently decides Merchant Center eligibility, approval, suspension, and review availability. Approval and continued eligibility are not guaranteed. We are an independent service provider, not endorsed by Google or Shopify.</p></div></section>
 
 <section class="section builder" id="configure" aria-labelledby="builder-heading">
@@ -71,6 +93,7 @@ body{overflow-x:hidden}
 </div>
 <aside class="builder-summary"><div class="eyebrow">Your configuration</div><h3 id="tier-label">Designer Storefront</h3><div class="summary-price" aria-live="polite" id="builder-price">$1,995</div><p>Estimated one-time project starting price</p><hr style="border:0;border-top:1px solid #cbd2cb;margin:25px 0"><div class="eyebrow">Selected scope</div><ul id="selected-scope"><li>Custom storefront design foundation</li><li>Responsive website presentation</li><li>Owner handoff</li></ul><button class="button dark" type="button" id="copy-brief">Copy My Project Brief ↗</button><p id="copy-feedback" aria-live="polite"></p><p class="disclaimer">Estimates are illustrative, not a binding quote. Merchant Center services are available only in qualifying packages and approval is never guaranteed. Final scope, costs, eligibility, and contract terms are confirmed separately.</p></aside>
 </div></div></section>
+<section class="section statement" id="expertise"><div class="wrap inner"><div><div class="eyebrow">A different kind of commerce partner</div><h2>Design is only<br>the beginning.</h2><p>The strongest online stores are built on the details customers don't always see: consistent policies, clear business disclosures, clean product data, reliable configuration, and a thoughtful buying experience.</p><p>We bring practical experience from developing and operating independent Shopify stores to every engagement—so the finished result feels cohesive from the first impression through checkout.</p><div class="actions"><a href="#process" class="button dark">Our Approach</a></div></div><img class="statement-photo" src="https://images.unsplash.com/photo-1497366754035-f200968a6e72?auto=format&fit=crop&w=1100&q=85" loading="lazy" alt="Refined creative workspace with natural light"></div></section>
 <section class="photo-band"><img src="https://images.unsplash.com/photo-1497366858526-0766cadbe8fa?auto=format&fit=crop&w=1200&q=85" alt="Architectural contemporary office interior" loading="lazy"><div class="content"><div class="eyebrow light">A more complete approach</div><h2>Every detail<br>has a purpose.</h2><p>Our work connects visual identity with the underlying systems that make a storefront credible, functional, and easier to maintain.</p><ul><li>Storefront strategy and design</li><li>Business information and policy consistency</li><li>Merchant Center readiness and remediation</li><li>AI and advanced commerce integrations</li></ul></div></section>
 <section class="section" id="portfolio"><div class="wrap"><div class="section-intro"><div><div class="eyebrow">Selected work</div><h2>Experience made visible.</h2></div><p>Explore examples from stores we've developed and operated. These are our own projects, not outside-client testimonials.</p></div><div class="portfolio-grid">
 <article class="project"><img src="https://images.unsplash.com/photo-1521369909029-2afed882baee?auto=format&fit=crop&w=1200&q=85" alt="Editorial photograph of a classic hat" loading="lazy"><div class="info"><span class="tag">Specialty retail · Store available for acquisition</span><h3>Sterling Hat Co.</h3><p>Specialty headwear storefront featuring e-commerce integrations and a custom AI shopping concierge.</p><a class="link" href="https://sterlinghatco.com" target="_blank" rel="noopener noreferrer">Explore live website ↗</a><p class="note">Business acquisition inquiries are subject to separate terms and due diligence.</p></div></article>
@@ -85,7 +108,23 @@ body{overflow-x:hidden}
 <details class="faq-item"><summary>Do you operate my store or run ads for me?</summary><p>No. We build and configure commerce technology. Merchants remain responsible for products, fulfillment, customer operations, and advertising. We may introduce independent specialists when requested.</p></details>
 <details class="faq-item"><summary>How much does a custom project cost?</summary><p>Our standard storefront foundations start at $1,995. Extensive custom development, AI integrations, or advanced remediation are quoted separately after a discovery assessment.</p></details>
 </div></section>
-<section class="cta" id="inquire"><div class="wrap"><div class="eyebrow light">Start a conversation</div><h2>Your next chapter in commerce starts with the right foundation.</h2><p>Interested in Merchant Center consulting, storefront development, or a custom integration? We welcome a conversation about your project.</p><div class="preview"><strong>Consultation requests opening soon.</strong> Our verified business contact address and secure inquiry form are being configured. No form is active on this preview.</div></div></section>
+<section class="cta" id="inquire"><div class="wrap"><div class="eyebrow light">Start a conversation</div><h2>Your next chapter in commerce starts with the right foundation.</h2><p>Interested in Merchant Center consulting, storefront development, or a custom integration? We welcome a conversation about your project.</p>
+<div class="intake-shell" id="consultation-intake">
+<div class="intake-header"><div><div class="eyebrow">Private project intake</div><h3>Tell us what you're building.</h3><p>Answer a few questions to prepare a useful project brief. Nothing is sent until our secure inquiry system is activated.</p></div><span class="intake-step">03 MINUTES</span></div>
+<form id="intake-form" novalidate>
+<div class="intake-fields">
+<label>What can we help with?<select name="service" required><option value="">Select a service</option><option>Merchant Center Compliance Review</option><option>Advanced Merchant Center Remediation</option><option>Shopify Storefront Development</option><option>Custom Commerce and AI</option><option>Business Acquisition Inquiry</option></select></label>
+<label>What best describes your business?<select name="stage" required><option value="">Select your stage</option><option>Planning a new business</option><option>Existing online store</option><option>Established brand seeking improvements</option><option>Exploring a business purchase</option></select></label>
+<label>Current Merchant Center status<select name="merchant"><option value="">Select if applicable</option><option>Not yet submitted</option><option>Approved</option><option>Under review</option><option>Misrepresentation warning or rejection</option><option>Suspended; review or appeal still available</option><option>Suspended; no further review permitted</option><option>Unsure</option></select></label>
+<label>Estimated budget<select name="budget"><option value="">Prefer to discuss</option><option>$1,995–$3,000</option><option>$3,000–$5,000</option><option>$5,000–$10,000</option><option>$10,000+</option></select></label>
+<label class="wide">Your website (optional)<input name="url" type="url" placeholder="https://yourstore.com" inputmode="url"></label>
+<label class="wide">A little about your goals<textarea name="goals" rows="4" maxlength="1500" placeholder="What would a successful project look like?"></textarea></label>
+</div>
+<p class="intake-note">For Merchant Center remediation, we review prior attempts and account restrictions before accepting work. We do not guarantee approval or bypass Google enforcement decisions.</p>
+<div class="intake-action"><button class="button dark" type="submit">Prepare My Inquiry Brief ↗</button><span>No account required · Nothing submitted automatically</span></div>
+</form>
+<div id="intake-result" class="intake-result" hidden><h3>Your inquiry brief is ready.</h3><p>Copy this summary for your records. Submission will be enabled once our verified business email and secure intake endpoint are connected.</p><pre id="intake-summary"></pre><button class="button dark" id="intake-copy" type="button">Copy Inquiry Brief</button><p id="intake-copy-status" aria-live="polite"></p></div>
+</div></div></section>
 </main><footer><div class="wrap"><div class="foot-grid"><a class="wordmark" href="#home">STERLING<span>COMMERCE SOLUTIONS</span></a><div class="footlinks"><a href="#services">Services</a><a href="#portfolio">Selected Work</a><a href="#process">Process</a><a href="#inquire">Inquiries</a></div></div><div class="fine"><span>© 2026 Sterling Commerce Solutions. All rights reserved.</span><span>Independent e-commerce consulting & development · Contact and legal disclosures pending verification</span></div></div></footer>
 
 <script>
@@ -121,6 +160,38 @@ $('#copy-brief').addEventListener('click',async()=>{
 const nav=$('#mobile-nav'),toggle=$('#mobile-menu-button');
 toggle.addEventListener('click',()=>{const open=nav.dataset.open!=='true';nav.dataset.open=String(open);toggle.setAttribute('aria-expanded',String(open));});
 nav.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>{nav.dataset.open='false';toggle.setAttribute('aria-expanded','false')}));
+
+/* Bring shoppers from a solution card into the correct next step. */
+document.querySelectorAll('[data-select-tier]').forEach(link=>link.addEventListener('click',()=>{
+ const button=document.querySelector('[data-tier="'+link.dataset.selectTier+'"]');if(button)button.click();
+}));
+document.querySelectorAll('[data-service]').forEach(link=>link.addEventListener('click',()=>{
+ const select=document.querySelector('#intake-form [name="service"]');if(select)select.value=link.dataset.service;
+}));
+const inquiryForm=document.getElementById('intake-form');
+inquiryForm.addEventListener('submit',event=>{
+ event.preventDefault();
+ const d=new FormData(inquiryForm);const service=String(d.get('service')||'');
+ const stage=String(d.get('stage')||'');
+ if(!service||!stage){inquiryForm.reportValidity();return}
+ const website=String(d.get('url')||'').trim();
+ const merchant=String(d.get('merchant')||'Not specified');
+ const budget=String(d.get('budget')||'Prefer to discuss');
+ const goals=String(d.get('goals')||'').trim().slice(0,1500);
+ const lines=['Sterling Commerce Solutions — Project Inquiry','Service: '+service,'Business stage: '+stage,'Merchant Center status: '+(merchant||'Not specified'),'Budget: '+(budget||'Prefer to discuss')];
+ if(website)lines.push('Website: '+website);
+ if(goals)lines.push('Goals: '+goals);
+ lines.push('This is a draft inquiry; no information has been submitted.');
+ const content=lines.join('\n');
+ document.getElementById('intake-summary').textContent=content;
+ document.getElementById('intake-result').hidden=false;
+ document.getElementById('intake-result').scrollIntoView({behavior:matchMedia('(prefers-reduced-motion: reduce)').matches?'auto':'smooth',block:'nearest'});
+ document.getElementById('intake-copy').onclick=async()=>{
+ try{await navigator.clipboard.writeText(content);document.getElementById('intake-copy-status').textContent='Copied to your clipboard.'}
+ catch(e){document.getElementById('intake-copy-status').textContent='Select the text above to copy manually.'}
+ };
+});
+
 const progress=$('.scroll-progress');
 let ticking=false;
 function updateProgress(){const max=document.documentElement.scrollHeight-window.innerHeight;progress.style.width=(max>0?Math.min(100,100*window.scrollY/max):0)+'%';ticking=false}
