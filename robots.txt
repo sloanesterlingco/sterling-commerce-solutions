@@ -1,7 +1,6 @@
 User-agent: *
 Allow: /
-Disallow: /api/
+Disallow: /api/inquiry
 
 Sitemap: https://sterlingcommercesolutions.com/sitemap.xml
-
 Agentmap: https://sterlingcommercesolutions.com/.well-known/ard.json
