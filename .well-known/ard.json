@@ -3,7 +3,7 @@
     {
       "identifier": "urn:air:sterlingcommercesolutions.com:api:service-discovery",
       "displayName": "Sterling Commerce Solutions Service Discovery API",
-      "type": "application/openapi+json",
+      "type": "application/vnd.oai.openapi+json;version=3.1",
       "url": "https://sterlingcommercesolutions.com/openapi.json",
       "capabilities": [
         "SearchServices",
@@ -15,7 +15,17 @@
         "Compare Shopify storefront development packages and starting prices",
         "Find an AI shopping concierge integration for an ecommerce store",
         "What does a Google Merchant Center compliance audit include?"
-      ]
+      ],
+      "@context": "https://agenticresourcediscovery.org/context/v1",
+      "tags": [
+        "ecommerce",
+        "google-merchant-center",
+        "shopify",
+        "ai-commerce",
+        "consulting"
+      ],
+      "version": "1.0.0",
+      "updatedAt": "2026-11-22"
     }
   ]
 }
