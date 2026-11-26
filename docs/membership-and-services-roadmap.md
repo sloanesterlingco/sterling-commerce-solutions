@@ -50,3 +50,12 @@ Do not publish a completed case study or claim GMC product approval until the fo
 - Website inquiry email deliverability confirmed
 - Accessibility/mobile QA and privacy policies
 - Owner approval before publishing new sales claims or activating billing
+
+## Membership payments and legal readiness (research required)
+- Compare Stripe Billing with Shopify subscription options for a non-retail membership website: platform compatibility, recurring fees, payment processing, tax handling, checkout, self-service cancellation, customer portal, dunning, webhooks, and access provisioning.
+- No payment collection or live signup until provider selection, implementation, testing, and owner approval.
+- Draft and legally review Privacy Policy, Terms of Service, Subscription/Billing/Cancellation/Refund Policy, AI Concierge Disclosure, and separate Professional Services Agreement / statement of work.
+- Disclose membership recurring charge and renewal interval clearly before purchase, provide accessible cancellation, and confirm applicable automatic-renewal and consumer protection requirements.
+- Explain how user questions, uploaded business documents, and any connected store data are handled, retained, and shared with AI/payment/service providers.
+- Clearly define 10% discount eligibility, exclusions, duration, and non-stacking rules.
+- Verify tax obligations, data security, cookie/analytics consent needs, and accessibility with qualified professionals as applicable.
