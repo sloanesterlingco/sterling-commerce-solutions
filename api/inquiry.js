@@ -3,7 +3,10 @@ const ALLOWED_SERVICES = new Set([
   'Merchant Center Compliance Review',
   'Advanced Merchant Center Remediation',
   'Shopify Storefront Development',
-  'Custom Commerce and AI'
+  'Custom Commerce and AI',
+  'Commerce Navigator membership information',
+  'Commerce Accelerator membership information',
+  'Done-for-you business launch'
 ]);
 function clean(value,max=500){return typeof value==='string'?value.trim().slice(0,max):''}
 function reply(res,code,body){res.statusCode=code;res.setHeader('Content-Type','application/json; charset=utf-8');res.setHeader('Cache-Control','no-store');return res.end(JSON.stringify(body))}
