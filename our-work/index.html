@@ -126,7 +126,7 @@ body{overflow-x:hidden}
 </div></section>
 <section class="cta" id="inquire"><div class="wrap"><div class="eyebrow light">Start a conversation</div><h2>Your next chapter in commerce starts with the right foundation.</h2><p>Interested in Merchant Center consulting, storefront development, or a custom integration? We welcome a conversation about your project.</p>
 <div class="intake-shell" id="consultation-intake">
-<div class="intake-header"><div><div class="eyebrow">Private project intake</div><h3>Tell us what you're building.</h3><p>Answer a few questions to prepare a useful project brief. Nothing is sent until our secure inquiry system is activated.</p></div><span class="intake-step">03 MINUTES</span></div>
+<div class="intake-header"><div><div class="eyebrow">Private project intake</div><h3>Tell us what you're building.</h3><p>Answer a few questions to prepare a useful project brief. Submit your project details securely when online delivery is available. If delivery is unavailable, you can copy your inquiry brief and email us directly.</p></div><span class="intake-step">03 MINUTES</span></div>
 <form id="intake-form" novalidate>
 <div class="intake-fields">
 <label>Your name <span aria-hidden="true">*</span><input name="name" type="text" autocomplete="name" maxlength="120" required placeholder="Your name"></label>
@@ -139,12 +139,12 @@ body{overflow-x:hidden}
 <label class="wide">Your website (optional)<input name="url" type="url" placeholder="https://yourstore.com" inputmode="url"></label>
 <label class="wide">A little about your goals<textarea name="goals" rows="4" maxlength="1500" placeholder="What would a successful project look like?"></textarea></label>
 </div>
-<label class="privacy-check"><input type="checkbox" name="consent" required> I agree to be contacted about this inquiry. My information will be used to respond to my request and will not be sold for advertising.</label><p class="intake-note">Please review our <a href="/privacy-policy" target="_blank" rel="noopener">Privacy Policy</a> before submitting.</p><p class="intake-note">For Merchant Center remediation, we review prior attempts and account restrictions before accepting work. We do not guarantee approval or bypass Google enforcement decisions.</p>
-<div class="intake-action"><button class="button dark" type="submit" id="inquiry-submit">Prepare My Inquiry Brief ↗</button><span id="inquiry-mode">No account required · Email delivery setup pending</span></div>
+<label class="privacy-check"><input type="checkbox" name="consent" required> I agree to be contacted about this inquiry. My information will be used to respond to my request and will not be sold for advertising.</label><p class="intake-note">Please review our <a href="/privacy-policy.html" target="_blank" rel="noopener">Privacy Policy</a> before submitting.</p><p class="intake-note">For Merchant Center remediation, we review prior attempts and account restrictions before accepting work. We do not guarantee approval or bypass Google enforcement decisions.</p>
+<div class="intake-action"><button class="button dark" type="submit" id="inquiry-submit">Prepare My Inquiry Brief ↗</button><span id="inquiry-mode">No account required · Secure delivery when available</span></div>
 </form>
-<div id="intake-result" class="intake-result" hidden><h3>Your inquiry brief is ready.</h3><p id="intake-result-text">Copy this summary for your records. Email delivery will be enabled once our verified business address is connected.</p><pre id="intake-summary"></pre><button class="button dark" id="intake-copy" type="button">Copy Inquiry Brief</button><p id="intake-copy-status" aria-live="polite" role="status"></p></div>
+<div id="intake-result" class="intake-result" hidden><h3>Your inquiry brief is ready.</h3><p id="intake-result-text">Copy this summary for your records. If online delivery is unavailable, email your inquiry brief to consultations@sterlingcommercesolutions.com.</p><pre id="intake-summary"></pre><button class="button dark" id="intake-copy" type="button">Copy Inquiry Brief</button><p id="intake-copy-status" aria-live="polite" role="status"></p></div>
 </div></div></section>
-</main><footer><div class="wrap"><div class="foot-grid"><a class="wordmark" href="/">STERLING<span>COMMERCE SOLUTIONS</span></a><div class="footlinks"><a href="/services/">Services</a><a href="/our-work/">Selected Work</a><a href="/services/">Process</a><a href="/contact/#consultation-intake">Inquiries</a><a href="/privacy-policy">Privacy</a><a href="/terms">Terms</a><a href="/openapi.json">Agent API</a></div></div><div class="fine"><span>© 2026 Sterling Commerce Solutions. All rights reserved.</span><span>Independent e-commerce consulting & development · Contact and legal disclosures pending verification</span></div></div></footer>
+</main><footer><div class="wrap"><div class="foot-grid"><a class="wordmark" href="/">STERLING<span>COMMERCE SOLUTIONS</span></a><div class="footlinks"><a href="/services/">Services</a><a href="/our-work/">Selected Work</a><a href="/services/">Process</a><a href="/contact/#consultation-intake">Inquiries</a><a href="/privacy-policy.html">Privacy</a><a href="/terms.html">Terms</a><a href="/openapi.json">Agent API</a></div></div><div class="fine"><span>© 2026 Sterling Commerce Solutions. All rights reserved.</span><span>Independent e-commerce consulting & development · Project inquiries welcome · Services subject to written scope and agreement</span></div></div></footer>
 
 <script>
 (function(){
@@ -230,7 +230,7 @@ inquiryForm.addEventListener('submit',async event=>{
  if(goals)lines.push('Goals: '+goals);
  const content=lines.join('\n');
  if(!inquiryReady){
-  showInquiryResult(content,false,'This is a local draft only. No inquiry has been submitted. Save the brief while secure email delivery is being configured.');
+  showInquiryResult(content,false,'This is a local draft only; nothing has been sent. Copy the brief and email it to consultations@sterlingcommercesolutions.com.');
   return;
  }
  inquiryButton.disabled=true;inquiryButton.textContent='Sending securely…';
