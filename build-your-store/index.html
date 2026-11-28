@@ -171,7 +171,7 @@ function refresh(){
 document.querySelectorAll('[data-tier]').forEach(el=>el.addEventListener('click',()=>{
  active=el.dataset.tier;document.querySelectorAll('[data-tier]').forEach(btn=>btn.setAttribute('aria-pressed',String(btn===el)));refresh();
 }));
-document.querySelectorAll('.addon input').forEach(el=>el.addEventListener('change',refresh));document.getElementById('signature-design').addEventListener('change',refresh);document.querySelectorAll('[data-design-choice]').forEach(b=>b.addEventListener('click',()=>{document.getElementById('signature-design').value=b.dataset.designChoice;refresh();document.getElementById('configure').scrollIntoView({behavior:'smooth'});}));refresh();
+document.querySelectorAll('.addon input').forEach(el=>el.addEventListener('change',refresh));document.getElementById('signature-design').addEventListener('change',refresh);const requestedDesign=new URLSearchParams(window.location.search).get('design');const designMap={sterling:'The Sterling',sovereign:'The Sovereign',meridian:'The Meridian'};if(requestedDesign&&designMap[requestedDesign])document.getElementById('signature-design').value=designMap[requestedDesign];document.querySelectorAll('[data-design-choice]').forEach(b=>b.addEventListener('click',()=>{document.getElementById('signature-design').value=b.dataset.designChoice;refresh();document.getElementById('configure').scrollIntoView({behavior:'smooth'});}));refresh();
 $('#copy-brief').addEventListener('click',async()=>{
  try{await navigator.clipboard.writeText(summary);$('#copy-feedback').textContent='Project brief copied. You can paste it into an inquiry.'}
  catch(e){$('#copy-feedback').textContent='Please select the project details above and copy them manually.'}
